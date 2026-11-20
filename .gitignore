@@ -6,6 +6,12 @@
 # Local state and recovery artifacts
 /.acl-recovery/
 
+# Python and test scratch
+__pycache__/
+*.pyc
+/.test-tmp/
+/verify-demo/
+
 # OS/editor noise
 .DS_Store
 Thumbs.db
