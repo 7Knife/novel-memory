@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/novel-memory/entity.schema.json",
+  "title": "Novel Memory entity frontmatter",
+  "type": "object",
+  "required": ["title", "type", "entity_type", "canon_status"],
+  "properties": {
+    "title": { "type": "string", "minLength": 1 },
+    "type": { "const": "Entity" },
+    "entity_type": {
+      "type": "string",
+      "enum": ["Person", "Location", "Organization", "Item", "System", "Faction", "Concept"]
+    },
+    "canon_status": {
+      "type": "string",
+      "enum": ["draft", "pending", "canon", "obsolete"]
+    },
+    "permalink": { "type": "string" },
+    "tags": {
+      "oneOf": [
+        { "type": "array", "items": { "type": "string" } },
+        { "type": "string" }
+      ]
+    },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "superseded": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "old_value", "reason", "source"],
+        "properties": {
+          "field": { "type": "string" },
+          "old_value": { "type": "string" },
+          "reason": { "type": "string" },
+          "source": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}
