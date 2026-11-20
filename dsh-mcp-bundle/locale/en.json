@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Novel Memory Basic Memory MCP",
+    "description": "Connects DSH to a local Basic Memory MCP server or a Basic Memory Cloud MCP endpoint for novel memory.",
+    "detail": "docs/DETAIL.md"
+  }
+}
