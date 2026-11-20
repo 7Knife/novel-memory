@@ -1,0 +1,31 @@
+{
+  "name": "@local/novel-memory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Entity-level review and confirmation workflow for novel-writing memory in Basic Memory",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon/icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs/DETAIL.md",
+    "icon/icon.svg",
+    "lib/*.js",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dsh": ">=0.2.0-rc.2 <0.3.0-0"
+    },
+    "profiles": ["web", "desktop"]
+  }
+}
