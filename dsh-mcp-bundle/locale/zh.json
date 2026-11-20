@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "小说记忆 Basic Memory MCP",
+    "description": "把 DSH 连接到本地 Basic Memory MCP 或 Basic Memory Cloud MCP 端点。",
+    "detail": "docs/DETAIL.md"
+  }
+}
