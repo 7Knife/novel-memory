@@ -1,0 +1,15 @@
+# Upstream repositories used only as local reference clones (not part of this repo)
+/basic-memory/
+/dsh-self-memory/
+/dsh-memory-evolve/
+
+# Local state and recovery artifacts
+/.acl-recovery/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+node_modules/
