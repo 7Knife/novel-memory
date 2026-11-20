@@ -1,0 +1,15 @@
+- insert:
+    - id: novel-memory-basic-memory-mcp
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: basicmemory
+        transport: stdio
+        command: uvx
+        args:
+          - '--prerelease=allow'
+          - basic-memory
+          - mcp
+        failOnStartupError: false
+
+# Local stdio template. Install this OR the cloud template, not both.
+# Verify after install with a tool named like mcp__basicmemory__bm_search.
