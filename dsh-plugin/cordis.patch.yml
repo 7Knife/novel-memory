@@ -1,0 +1,10 @@
+- insert:
+    - id: novel-memory
+      name: '@local/novel-memory'
+      config:
+        # Pending suggestions live under this directory as JSONL.
+        reviewDir: '~/.dsh/novel-memory/reviews'
+        # Maximum pending suggestions shown by the command.
+        listLimit: 20
+        # No global self-cognition injection. This is intentional.
+        entitySelfCognition: 'on-demand-only'
