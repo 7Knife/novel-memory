@@ -50,6 +50,7 @@ novel-memory/
 │       └── history/              # 已确认/已拒绝历史
 ├── dsh-plugin/                   # 轻量 DSH Host 插件：实体审查与确认
 ├── dsh-mcp-bundle/               # DSH → Basic Memory MCP 连接模板（本地/cloud 二选一）
+├── lifecycle_extension/          # 外挂生命周期模块：衰减 / 加权排序 / 审查队列 / ## 自述
 └── tests/                        # 本地验证
 ```
 
@@ -74,12 +75,18 @@ novel-memory/
 ## 验证
 
 ```bash
+# DSH 插件
 node --check dsh-plugin/index.js
 node --check dsh-plugin/lib/review-store.js
 node tests/review-store.test.js
+
+# 生命周期外挂
+python -m unittest discover -s lifecycle_extension/tests -t . -v
 ```
 
 当前插件不修改 DSH profile；安装与启用由用户自行决定。
+
+`lifecycle_extension/` 完全外挂，不修改 Basic Memory 的源码、SQLite 表、Markdown 解析器/渲染器或 MCP 工具注册表。详见 `lifecycle_extension/README.md`。
 
 ## License
 
