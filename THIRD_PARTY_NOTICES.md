@@ -13,8 +13,9 @@ This project is a local workflow/configuration layer for novel writing on top of
 ## Why this project can use MIT
 
 - The upstream clones are **not part of this repository** and are excluded by `.gitignore`.
-- This repository contains original documentation, schemas, workflow templates, and a small DSH host plugin written for this project.
+- This repository contains original documentation, schemas, workflow templates, a small DSH host plugin, and an external `lifecycle_extension/` Python module written for this project.
 - Ideas, interfaces, documented formats, and workflow patterns are not copyrightable expression. No verbatim source files from the three upstream projects are redistributed here.
+- `lifecycle_extension/` is a pure add-on: it imports no Basic Memory code, does not modify Basic Memory files, database tables, its Markdown parser/renderer, or its MCP tool registry. It only reads/writes frontmatter keys in user notes and re-ranks results returned by Basic Memory's own API. Because it is not a derivative work of Basic Memory's code, it does not inherit AGPL-3.0.
 - Upstream project names and repository URLs are retained for attribution only.
 
 ## AGPL-3.0 boundary — Basic Memory
