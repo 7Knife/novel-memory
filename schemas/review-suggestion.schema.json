@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/novel-memory/review-suggestion.schema.json",
+  "title": "Novel Memory entity review suggestion",
+  "type": "object",
+  "required": [
+    "id",
+    "kind",
+    "entity_name",
+    "setting",
+    "evidence",
+    "hits",
+    "first_seen",
+    "last_seen",
+    "created_by",
+    "status"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "kind": {
+      "type": "string",
+      "enum": ["new", "update", "status_progression"]
+    },
+    "entity_key": { "type": "string" },
+    "entity_name": { "type": "string", "minLength": 1 },
+    "entity_type": {
+      "type": "string",
+      "enum": ["Person", "Location", "Organization", "Item", "System", "Faction", "Concept"]
+    },
+    "field": { "type": "string" },
+    "setting": { "type": "string", "minLength": 1 },
+    "current_canon_status": {
+      "type": "string",
+      "enum": ["draft", "pending", "canon", "obsolete"]
+    },
+    "proposed_canon_status": {
+      "type": "string",
+      "enum": ["draft", "pending", "canon", "obsolete"]
+    },
+    "superseded": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "old_value", "reason", "source"],
+        "properties": {
+          "field": { "type": "string" },
+          "old_value": { "type": "string" },
+          "reason": { "type": "string" },
+          "source": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["source_note", "paragraph", "quote", "trigger"],
+        "properties": {
+          "source_note": { "type": "string", "minLength": 1 },
+          "paragraph": { "type": "integer", "minimum": 0 },
+          "quote": { "type": "string", "minLength": 1 },
+          "trigger": {
+            "type": "string",
+            "enum": ["scene_end", "chapter_final", "canon_change", "manual"]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "hits": { "type": "integer", "minimum": 1 },
+    "first_seen": { "type": "string" },
+    "last_seen": { "type": "string" },
+    "created_by": {
+      "type": "string",
+      "enum": ["main_llm", "user", "tool"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "approved", "rejected", "archived"]
+    }
+  },
+  "additionalProperties": false
+}
